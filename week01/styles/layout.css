@@ -1,18 +1,23 @@
 body {
     display: grid;
     height: 50vh;
-    grid-template: auto 1fr auto /  2fr 1fr;
+    grid-template: auto 1fr auto / 2fr 1fr;
+    margin: 0px;
 }
 
 header {
     background: green;
     grid-column: 1 / 4;
+    padding: 5px;
 
 }
 
-.navigation
-{
+.navigation {
     display: flex;
+    justify-content: space-between;
+    /* Evenly spacing out the navigation items */
+    list-style-type: none;
+    padding: 5px;
 }
 
 .navigation a {
@@ -22,14 +27,20 @@ header {
 .left-side {
     background: blue;
     grid-template-columns: 2 / 1;
+    padding: 5px;
+
 }
 
 .right-side {
     background: red;
     grid-template-columns: 2 / 2;
+    padding: 5px;
+
 }
 
 footer {
     background: purple;
     grid-column: 1 / 4;
+    padding: 5px;
+
 }

@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
+
+
+* {
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+
+}
+
+h1,
+h2 {
+    font-family: mooli, sans-serif;
+    text-align: center;
+
+}
+
+button {
+    font-family: mooli, sans-serif;
+    text-align: center;
+    background-color: #52489c;
+    border: none;
+    font-size: 1.5em;
+}
+
+menu {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0.5rem;
+    text-align: center;
+
+}
+
+h1 {
+    font-size: 3em;
+    padding: 1rem;
+    max-width: 200px;
+}
+
+
+main,
+footer,
+header {
+    padding: 1rem;
+}
+
+#color {
+    color: black;
+    padding: 1rem;
+}
+
+header,
+footer {
+    background-color: #52489c;
+}
+
+img {
+    max-width: 100%;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+}
+
+@media screen and (min-width: 700px) {
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    a {
+        display: none;
+    }
+
+    h1 {
+        max-width: none;
+
+    }
+
+
+}
+
+@media screen and (min-width: 1000px) {
+    .gallery {
+        grid-template-columns: 1fr 1fr 1fr;
+        max-width: 800px;
+    }
+
+    a {
+        display: grid;
+    }
+
+    menu {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        max-width: 800px;
+
+    }
+
+    button {
+        display: none;
+    }
+
+}

@@ -279,3 +279,72 @@ const recipes = [
 		rating: 4
 	}
 ]
+
+// Generate a random number as index
+// use the random index to select a recipe.
+//display that recipee into the html
+//test test test
+
+function createRandomIndex(array){
+	num = array.length
+	return Math.floor(Math.random()*num)
+}
+
+function recipeTemplate(recipe) {
+	return `<figure class="recipes">
+	<div class= "single-recipe">
+		<img src= "${recipe.image}" alt= "Image of ${recipe.name}" />
+		<div class="recipe-info">
+			<figcaption>
+				<ul class="recipe_tags">
+					${tagsTemplate(recipe.tags)}
+				</ul>
+				<h2><a href="#">${recipe.name}</a></h2>
+				<p class="recipe__ratings">
+					${ratingTemplate(recipe.rating)}
+				</p>
+				<p class="recipe__description">
+					${recipe.description}
+				</p>
+			</figcaption>
+
+		</div>
+	</div>
+</figure>`;
+}
+
+function tagsTemplate(tags) {
+	return tags.map((tag) => `<li>${tag}</li>`).join(' ');
+}
+
+function ratingTemplate(rating){
+
+	let html = `<span
+	class="rating"
+	role="img"
+	aria-label="Rating: ${rating} out of 5 stars"
+	>`
+	for (let i = 1; i <= 5; i++) {
+
+		if (i <= rating) {
+  
+		  html += `<span aria-hidden="true" class="icon-boot"> ⭐</span>`
+  
+		} else {
+  
+		  html += `<span aria-hidden="true" class="icon-empty">☆</span>`
+  
+		}    
+  
+	  }
+  
+	  html += `</span>`
+  
+	  return html
+  
+}
+
+const random_index = createRandomIndex(recipes);
+recipe = recipes[random_index]
+console.log(recipeTemplate(recipe));
+

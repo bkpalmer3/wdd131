@@ -285,21 +285,21 @@ const recipes = [
 //display that recipee into the html
 //test test test
 
-function createRandomIndex(array){
-	num = array.length
-	return Math.floor(Math.random()*num)
-}
+
+///////////RENDERING RECIPIES///////////
+
+//Templates
 
 function recipeTemplate(recipe) {
 	return `<figure class="recipes">
 	<div class= "single-recipe">
-		<img src= "${recipe.image}" alt= "Image of ${recipe.name}" />
+		<img src= "${recipe.image}" alt= "Image of ${recipe.name}" class="product-image"/>
 		<div class="recipe-info">
 			<figcaption>
 				<ul class="recipe_tags">
 					${tagsTemplate(recipe.tags)}
 				</ul>
-				<h2><a href="#">${recipe.name}</a></h2>
+				<h2>${recipe.name}</h2>
 				<p class="recipe__ratings">
 					${ratingTemplate(recipe.rating)}
 				</p>
@@ -340,11 +340,67 @@ function ratingTemplate(rating){
   
 	  html += `</span>`
   
-	  return html
+	  return html;
   
 }
 
-const random_index = createRandomIndex(recipes);
-recipe = recipes[random_index]
-console.log(recipeTemplate(recipe));
+//Render page
+
+function getRandomRecipe(array){
+	num = array.length;
+	randomNum = Math.floor(Math.random()*num);
+	return recipes[randomNum];
+}
+
+function renderRecipes(recipeList) {
+	recipe_container = document.querySelector("#recipe-container");
+
+	recipe_container.innerHTML = ""
+	recipeList.forEach(recipe => {
+		let html = recipeTemplate(recipe);
+		recipe_container.innerHTML += html;
+	});
+}
+
+function init() {
+	recipeList = []
+	let count = 3
+	for (let i = 1; i <= count; i++) {
+	recipe = getRandomRecipe(recipes);
+	if (recipeList.includes(recipe)){
+		count ++
+	} else{
+		recipeList.push(recipe)
+	}
+	}
+	renderRecipes(recipeList);
+
+}
+
+init();
+
+//////////FILTERING RECIPES//////////
+
+
+const searchBttn = document.querySelector('#search');
+
+searchBttn.addEventListener('click', function(event){
+	event.preventDefault();
+	const query = document.querySelector('#search-bar').value;
+	filterRecipes(recipes, query);
+
+
+});
+
+
+function filterRecipes(recipes, query){
+
+	const lowerQuery = query.toLowerCase()
+	const filteredRecipes = recipes.filter(recipes => recipes.name.toLowerCase().includes(lowerQuery))
+	renderRecipes(filteredRecipes)
+	
+}
+
+
+
 

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Crafty+Girls&family=Merienda:wght@300..900&display=swap');
 
+/* Universal */
 :root{
     --heading-font: "Merienda";
     --text-font: arial, Helvetica, sans-serif;
@@ -11,6 +12,8 @@
     font-family: var(--text-font);
 }
 
+
+/* title and search bar */
 header{
     display: flex;
     justify-content: center;
@@ -67,7 +70,9 @@ form{
 
 }
 
-.recipes{
+
+ /* posts feed  */
+.recipe-container{
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -100,6 +105,8 @@ h2{
     color: var(--primary-color);
 }
 
+
+/* footer  and below*/
 .social{
     display: flex;
     justify-content: center;

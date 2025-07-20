@@ -17,25 +17,69 @@ import { monsters } from './all-monsters.js';
               <p><strong>CHA:</strong> ${monster.cha} ${monster.cha_mod}</p>
         </div>
       </div>
-        <button class="bttn" id="bttn">Show More</button>
-      <div class="traits hide">
+        <button class="bttn">Show More</button>
+      <div class="more hide">
         <p><strong>Actions:</strong> <span id="actions">${monster.actions}</span>
         <p><strong>Traits:</strong> <span id="traits">${monster.traits}</span>
         <p><strong>Skills:</strong> <span id="skills">${monster.skills}</span>
       </div>
-</div>`
+</div>`;
   }
 
 
-  function renderCards(monsters){
-    let container = document.querySelector('#card-container')
-    const card = createCardTemplate(monsters[203])
-    container.innerHTML += card
+  function renderCards(monsters, index){
+    let container = document.querySelector('#card-container');
+  
+    const card = createCardTemplate(monsters[index]);
+    container.innerHTML += card;
 
   }
 
   function init(){
-    renderCards(monsters)
+    for (let i = 0; i < 30; i++) {
+      renderCards(monsters, i);
+    }
   }
   
 init()
+
+//Show More
+
+const buttons = document.querySelectorAll('.bttn');
+buttons.forEach(button => {
+  button.addEventListener('click', (event) => {
+    const card = event.target.closest('.monster-card');
+    const more = card.querySelector('.more');
+    more.classList.toggle('hide');
+  });
+});
+
+//Search 
+// const searchBttn = document.querySelector('#search-bttn');
+
+// searchBttn.addEventListener('click', function(event){
+// 	event.preventDefault();
+// 	const query = document.querySelector('#search').value;
+// 	filterCards(monsters, query);
+
+
+// });
+
+
+// function renderSearch(monsterList){
+//   let container = document.querySelector('#card-container');
+//   filterCards.forEach(monster => {
+//     const card = createCardTemplate(monster);
+//     container.innerHTML += card;
+//   });
+// }
+
+// function filterCards(monsters, query){
+
+// 	const lowerQuery = query.toLowerCase();
+// 	const filteredcards = monsters.filter(monsters => monsters.name.toLowerCase().includes(lowerQuery));
+//   let container = document.querySelector('#card-container');
+//   container.innerHTML = ''
+// 	renderSearch(filteredcards);
+	
+// }

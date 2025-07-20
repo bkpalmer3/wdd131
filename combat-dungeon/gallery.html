@@ -20,12 +20,15 @@
             </nav>
         </div>
         <div class="hero-container">
-            <h1 class="hero-title">Combat Dungeon</h1>
-            <img src="images/hero_image2.jpeg" alt="Hero image" class="hero-img">
+            <h1 class="hero-title">Monster Gallery</h1>
+            <img src="images/hero_image.jpeg" alt="Hero image" class="hero-img">
         </div>
     </header>
     <main>
-
+        <form action="/search" method="get" class="search-form">
+            <input type="text" placeholder="Search for a Dnd Monster" class="search" id="search">
+            <button class="search-bttn" id="search-bttn">Search</button>
+        </form>
+        <section class="card-container" id="card-container">
+        </section>
     </main>
-</body>
-</html>

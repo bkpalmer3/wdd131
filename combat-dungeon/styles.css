@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  /* change the values below to your colors from your palette */
+  --primary-color: #802424;
+  --secondary-color: #363636;
+  --accent1-color: #f3efe8;
+  --accent2-color: #9E543A;
+
+  /* change the values below to your chosen font(s) */
+  --heading-font: "Metal Mania";
+  --paragraph-font: "Roboto", Helvetica, sans-serif;
+}
+
+.monster-card{
+    width: 300px;
+    border: 1px black solid;
+    background: var(--secondary-color);
+    border-radius: 15px;
+    color: var(--accent1-color);
+    padding: 1;
+}
+.profile{
+    max-width: 300px;
+    height: 350px;
+    border-radius: 15px 15px 0 0;
+    object-fit: cover;
+
+}
+
+.hide{
+    display: none;
+}

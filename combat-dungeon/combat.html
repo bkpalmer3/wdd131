@@ -7,6 +7,7 @@
     <meta name="description" content="A website to manage all combat needs for a dungeon master">
     <title>Combat Dungeon</title>
     <link rel="stylesheet" href="styles.css">
+    <script type="module" defer src="combat.js"></script>
 </head>
 <body>
     <header>
@@ -19,12 +20,18 @@
             </nav>
         </div>
         <div class="hero-container">
-            <h1 class="hero-title">Combat Dungeon</h1>
-            <img src="images/hero_image2.jpeg" alt="Hero image" class="hero-img">
+            <h1 class="hero-title">Monster Combat</h1>
+            <img src="images/hero_image3.jpg" alt="Hero image" class="hero-img">
         </div>
     </header>
     <main>
-        <p class="welcome">Welcome to combat Dugeon! Please veiw our gallery to get started.</p>
+        <div class="bttn-container">
+            <button class="cb-bttn"  id="cb-bttn">Start Combat</button>
+            <button class="cb-bttn"  id="clear">Clear Party</button>
+        </div>
+        <div class="card-container" id="combat-container"></div>
+        <div class="overlay hide"></div>
+
     </main>
 </body>
 </html>
